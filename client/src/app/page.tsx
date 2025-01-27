@@ -1,4 +1,5 @@
 "use client";
+
 import ItemList, { type ItemRecord } from "@/components/item/item";
 import Link from "next/link";
 import { useEffect, useState } from "react";
