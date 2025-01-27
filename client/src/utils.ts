@@ -1,7 +1,13 @@
 import { ItemRecord } from "./components/item/item";
 
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
+
 const fetchRecords = async (): Promise<ItemRecord[] | undefined> => {
-  const response = await fetch("http://localhost:5050/records/");
+  if (!apiURL) {
+    throw new Error("API URL is not defined");
+  }
+
+  const response = await fetch(apiURL);
 
   if (!response.ok) {
     const message = `An error occured: ${response.statusText}`;
@@ -19,7 +25,11 @@ const fetchRecord = async () => {
 
 const addRecord = async (item: ItemRecord) => {
   try {
-    const response = await fetch(`http://localhost:5050/records/`, {
+    if (!apiURL) {
+      throw new Error("API URL is not defined");
+    }
+
+    const response = await fetch(apiURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +50,11 @@ const addRecord = async (item: ItemRecord) => {
 
 const updateRecord = async (item: ItemRecord) => {
   try {
-    const response = await fetch(`http://localhost:5050/records/${item._id}`, {
+    if (!apiURL) {
+      throw new Error("API URL is not defined");
+    }
+
+    const response = await fetch(`${apiURL}/${item._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +80,11 @@ const updateRecord = async (item: ItemRecord) => {
 
 const deleteRecord = async (id: string) => {
   try {
-    const response = await fetch(`http://localhost:5050/records/${id}`, {
+    if (!apiURL) {
+      throw new Error("API URL is not defined");
+    }
+
+    const response = await fetch(`${apiURL}/${id}`, {
       method: "DELETE",
     });
 
