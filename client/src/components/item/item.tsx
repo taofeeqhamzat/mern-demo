@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { RecordsContext } from "@/app/page";
+import { RecordsContext } from "@/components/RecordsContext";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -19,6 +19,7 @@ function Item({ record }: { record: ItemRecord }) {
 
   useContext(RecordsContext);
   const handleDelete = (id: string) => async () => {
+    id = id.toString(); // Incase of a string array
     await deleteRecord(id);
     setRecords(records.filter((record: ItemRecord) => record._id !== id));
   };
@@ -39,8 +40,10 @@ function Item({ record }: { record: ItemRecord }) {
         </Link>
       </td>
       <td>
-        <button onClick={handleDelete(record._id)} className="p-1 sm:p-0">
-          {/* TODO: Fix type error*/}
+        <button
+          onClick={handleDelete(record._id?.toString() || "")}
+          className="p-1 sm:p-0"
+        >
           <FontAwesomeIcon icon={faTrash} />
         </button>
       </td>

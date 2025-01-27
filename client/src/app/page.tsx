@@ -1,12 +1,11 @@
 "use client";
 import ItemList, { type ItemRecord } from "@/components/item/item";
 import Link from "next/link";
-import { useEffect, useState, createContext } from "react";
+import { useEffect, useState } from "react";
 import { fetchRecords } from "@/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons/faCirclePlus";
-
-export const RecordsContext = createContext({}); // TODO: Fix type error
+import { RecordsContext } from "@/components/RecordsContext";
 
 export default function Home() {
   const [records, setRecords] = useState<ItemRecord[]>([]);
