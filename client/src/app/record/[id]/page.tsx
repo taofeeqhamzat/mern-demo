@@ -63,7 +63,7 @@ export default function Add() {
           Price:
           <br />
           <input
-            type="string"
+            type="number"
             name="price"
             id="price"
             placeholder="e.g 99.99"
