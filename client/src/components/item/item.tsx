@@ -39,7 +39,7 @@ function Item({ record }: { record: ItemRecord }) {
       <td>
         <Link
           href={`record/${record._id}?name=${record.name}&price=${record.price}&status=${record.status}`}
-          className="p-1 rounded-md bg-[dimgrey] hover:bg-gray-600"
+          className="p-1 rounded-md bg-[lightgrey] dark:bg-[dimgrey] text-[black] dark:text-[white] hover:bg-slate-200 dark:hover:bg-gray-600"
         >
           <FontAwesomeIcon icon={faPenToSquare} />
         </Link>
@@ -47,7 +47,7 @@ function Item({ record }: { record: ItemRecord }) {
       <td>
         <button
           onClick={handleDelete(record._id?.toString() || "")}
-          className="p-1 rounded-md bg-[dimgrey] hover:bg-gray-600"
+          className="p-1 rounded-md bg-[lightgrey] dark:bg-[dimgrey] text-[black] dark:text-[white] hover:bg-slate-200 dark:hover:bg-gray-600"
         >
           <FontAwesomeIcon icon={faTrash} />
         </button>

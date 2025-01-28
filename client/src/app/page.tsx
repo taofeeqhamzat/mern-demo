@@ -47,7 +47,7 @@ export default function Home() {
           <td className="flex flex-row justify-center items-center mx-auto text-center text-nowrap">
             <Link
               href="/record/new"
-              className="bg-white text-black p-0 border-0 border-spacing-2 rounded-full"
+              className="scale-150 p-0 border-0 border-spacing-2 shadow-black shadow-xl hover:shadow-none rounded-full"
             >
               <FontAwesomeIcon icon={faCirclePlus} size="2xl" />
             </Link>
