@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useSearchParams, useRouter } from "next/navigation";
 import { addRecord, updateRecord } from "@/utils";
 import { ItemRecord } from "@/components/item/item";
 
@@ -20,16 +20,17 @@ export default function Add() {
   });
   console.log(item);
 
+  const router = useRouter();
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (id === "new") {
       addRecord(item).then(() => {
-        window.location.replace("/");
+        router.replace("/");
       });
       return;
     }
     updateRecord(item).then(() => {
-      window.location.replace("/");
+      router.push("/");
     });
     return;
   };
