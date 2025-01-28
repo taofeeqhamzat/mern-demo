@@ -23,12 +23,14 @@ export default function Add() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (id === "new") {
-      addRecord(item);
-      window.location.replace("/");
+      addRecord(item).then(() => {
+        window.location.replace("/");
+      });
       return;
     }
-    updateRecord(item);
-    window.location.replace("/");
+    updateRecord(item).then(() => {
+      window.location.replace("/");
+    });
     return;
   };
 
