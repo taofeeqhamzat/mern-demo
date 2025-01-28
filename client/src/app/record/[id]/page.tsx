@@ -38,54 +38,81 @@ export default function Add() {
   console.log(id);
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Item Name</label>
-        <br />
-        <input
-          type="text"
-          id="full-name"
-          value={item.name || ""}
-          onChange={(e) => {
-            setItem({ ...item, name: e.target.value });
-          }}
-          className="p-1 border-2 text-black"
-        />
-        <br />
-        <label htmlFor="price">Price</label>
-        <br />
-        <input
-          type="number"
-          name="price"
-          id="price"
-          value={item.price || 0}
-          onChange={(e) => {
-            setItem({ ...item, price: Number(e.target.value) });
-          }}
-          className="p-1 border-2 text-black"
-        />
-        <br />
-        <label htmlFor="status">Item Status</label>
-        <br />
-        <select
-          name="status"
-          id="status"
-          required
-          value={item.status || ""}
-          onChange={(e) => {
-            setItem({ ...item, status: e.target.value });
-          }}
-          className="p-1 border-2 text-black"
-        >
-          <option
-            // label="Please choose an option"
-            value={"Please choose an option"}
+      <form
+        onSubmit={handleSubmit}
+        className="w-[60%] landscape:w-[70%] landscape:md:w-[60%] min-w-80 mx-auto flex flex-row flex-wrap justify-between items-center p-2 text-xs sm:text-sm md:text-lg font-bold"
+      >
+        <label htmlFor="name" className="w-[100%] mt-7">
+          Item Name:
+          <br />
+          <input
+            type="text"
+            id="name"
+            placeholder="e.g Crocs"
+            value={item.name || ""}
+            maxLength={12}
+            minLength={2}
+            onChange={(e) => {
+              setItem({ ...item, name: e.target.value });
+            }}
+            className="my-1 border-2 w-full p-2 rounded-lg focus:outline-[darkgrey] focus:outline-offset-4 bg-inherit"
           />
-          <hr />
-          <option label="In Stock" value={"In Stock"} />
-          <option label="Out of Stock" value={"Out of Stock"} />
-        </select>
+        </label>
         <br />
-        <input type="submit" value="Save item" />
+        <label htmlFor="price" className="w-[25%] sm:w-[40%] mt-7">
+          Price:
+          <br />
+          <input
+            type="string"
+            name="price"
+            id="price"
+            placeholder="e.g 99.99"
+            value={item.price || 0}
+            maxLength={3}
+            onChange={(e) => {
+              setItem({ ...item, price: Number(e.target.value) });
+            }}
+            className="my-1 border-2 w-full p-2 rounded-lg focus:outline-[darkgrey] focus:outline-offset-4 bg-inherit"
+          />
+        </label>
+        <br />
+        <label htmlFor="status" className="w-[70%] sm:w-[50%] mt-7">
+          Item Status:
+          <br />
+          <select
+            name="status"
+            id="status"
+            required
+            value={item.status || ""}
+            onChange={(e) => {
+              setItem({ ...item, status: e.target.value });
+            }}
+            className="my-1 border-2 p-2 w-full rounded-lg focus:outline-[darkgrey] focus:outline-offset-4 focus-within:bg-slate-300 dark:focus-within:bg-slate-600 bg-inherit"
+          >
+            <option label="Choose an option" />
+            <hr />
+            <option
+              label="In Stock"
+              value={"In Stock"}
+              className="p-2 bg-slate-200 dark:bg-slate-600"
+            />
+            <option
+              label="Out of Stock"
+              value={"Out of Stock"}
+              className="p-2 bg-slate-200 dark:bg-slate-600"
+            />
+          </select>
+        </label>
+        <br />
+        <label htmlFor="submit" className="sr-only">
+          Click to save item
+        </label>
+        <input
+          type="submit"
+          value="Save item"
+          id="submit"
+          className="mx-auto my-7 w-[50%] border p-2 rounded-xl bg-slate-200 dark:bg-slate-600 border-[darkgrey] dark:border-[lightgrey]"
+        />
       </form>
     </>
   );
