@@ -4,6 +4,8 @@ import { FormEvent, useState } from "react";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
 import { addRecord, updateRecord } from "@/utils";
 import { ItemRecord } from "@/components/item/item";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleLeft } from "@fortawesome/free-solid-svg-icons/faCircleLeft";
 
 export default function Add() {
   const params = useParams();
@@ -38,16 +40,22 @@ export default function Add() {
   console.log(id);
   return (
     <>
+      <header className="flex flex-row justify-center content-center relative w-[60%] landscape:w-[70%] landscape:md:w-[60%] min-w-80 mx-auto my-4 mt-9 p-3 items-center font-bold text-2xl sm:text-3xl text-center">
+        <button onClick={() => router.back()} className="absolute left-[7.5%]">
+          <FontAwesomeIcon icon={faCircleLeft} size="sm" />
+        </button>
+        <h1 className="">Inventory Item</h1>
+      </header>
       <form
         onSubmit={handleSubmit}
         className="w-[60%] landscape:w-[70%] landscape:md:w-[60%] min-w-80 mx-auto flex flex-row flex-wrap justify-between items-center p-2 text-xs sm:text-sm md:text-lg font-bold"
       >
-        <label htmlFor="name" className="w-[100%] mt-7">
-          Item Name:
+        <label htmlFor="item" className="w-[100%] mt-7">
+          Item:
           <br />
           <input
             type="text"
-            id="name"
+            id="item"
             placeholder="e.g Crocs"
             value={item.name || ""}
             maxLength={12}
@@ -77,7 +85,7 @@ export default function Add() {
         </label>
         <br />
         <label htmlFor="status" className="w-[70%] sm:w-[50%] mt-7">
-          Item Status:
+          Status:
           <br />
           <select
             name="status"
