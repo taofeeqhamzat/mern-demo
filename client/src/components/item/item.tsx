@@ -17,9 +17,7 @@ export type ItemRecord = {
 function Item({ record }: { record: ItemRecord }) {
   const { records, setRecords } = useContext(RecordsContext); // TODO: Fix type error
 
-  useContext(RecordsContext);
   const handleDelete = (id: string) => async () => {
-    id = id.toString(); // Incase of a string array
     await deleteRecord(id);
     setRecords(records.filter((record: ItemRecord) => record._id !== id));
   };
