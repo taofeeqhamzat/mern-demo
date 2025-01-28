@@ -26,28 +26,28 @@ export default function Home() {
       </caption>
       <thead className="grid grid-cols-custom-sm sm:grid-cols-custom py-3">
         <tr className="grid grid-cols-subgrid col-start-1 col-end-4 px-2">
-          <th scope="col" className="text-center">
+          <th scope="col" className="w-full text-nowrap text-center">
             Name
           </th>
-          <th scope="col" className="text-center">
+          <th scope="col" className="w-full text-nowrap text-center">
             Price
           </th>
-          <th scope="col" className="text-center">
+          <th scope="col" className="w-full text-nowrap text-center">
             Status
           </th>
         </tr>
       </thead>
-      <tbody className="grid grid-cols-custom-sm sm:grid-cols-custom items-start min-h-[25vh] max-h-[50vh] overflow-y-scroll p-2 border-[3px] border-[darkgrey] dark:border-[lightgrey] rounded-b-md text-sm md:text-md lg:text-lg">
+      <tbody className="grid grid-cols-custom-sm sm:grid-cols-custom items-start min-h-[25vh] max-h-[50vh] overflow-y-scroll p-2 border-[3px] border-[darkgrey] dark:border-[lightgrey] rounded-b-md text-sm text-start md:text-md lg:text-lg">
         <RecordsContext.Provider value={{ records, setRecords }}>
           <ItemList records={records} />
         </RecordsContext.Provider>
       </tbody>
       <tfoot className="p-2 text-sm md:text-md lg:text-lg">
-        <tr className="w-full flex flex-row justify-end pt-4">
-          <td>
+        <tr className="w-full block pt-4">
+          <td className="flex flex-row justify-center items-center mx-auto text-center text-nowrap">
             <Link
               href="/record/new"
-              className="bg-white text-black p-0 border-teal-800 border-spacing-2 rounded-full"
+              className="bg-white text-black p-0 border-0 border-spacing-2 rounded-full"
             >
               <FontAwesomeIcon icon={faCirclePlus} size="2xl" />
             </Link>

@@ -32,7 +32,7 @@ export default function RootLayout({
             MERN Demo
           </h1>
         </header>
-        <main className="w-[75%] min-w-96 mx-auto">{children}</main>
+        <main className="w-[75%] min-w-80 sm:min-w-72 mx-auto">{children}</main>
       </body>
     </html>
   );

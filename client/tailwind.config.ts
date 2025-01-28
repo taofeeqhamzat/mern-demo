@@ -14,8 +14,8 @@ export default {
       },
       gridTemplateColumns: {
         equal: "1fr 1fr 1fr",
-        custom: "30% 30% auto 40px 40px",
-        "custom-sm": "30% 30% auto auto auto",
+        custom: "30% 20% auto 40px 40px",
+        "custom-sm": "35% 10% auto 35px 35px",
       },
       gridTemplateRows: {
         auto: "auto",
