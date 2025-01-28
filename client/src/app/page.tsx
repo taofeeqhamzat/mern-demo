@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <table className="flex flex-col p-2 sm:p-3 mx-auto mb-4 bg-slate-200 dark:bg-slate-600 border-[darkgrey] dark:border-[lightgrey] border-2 rounded-xl dark:text-white">
-      <caption className="p-2 border-[3px] border-[darkgrey] dark:border-[lightgrey] rounded-t-md font-semibold text-2xl sm:text-3xl text-center">
+      <caption className="p-2 border-[3px] border-[darkgrey] dark:border-[lightgrey] rounded-t-md font-bold text-2xl sm:text-3xl text-center">
         Inventory
       </caption>
       <thead className="grid grid-cols-custom-sm sm:grid-cols-custom py-3">
